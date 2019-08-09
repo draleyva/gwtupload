@@ -183,23 +183,8 @@ public class Uploader extends Composite implements IsUpdateable, IUploader, HasJ
   private static int statusInterval = DEFAULT_UPDATE_INTERVAL;
 
   private static int uploadTimeout = DEFAULT_TIME_MAX_WITHOUT_RESPONSE;
-  public static void log(String msg, Throwable e) {
-    if (mlog == null) {
-      if (Window.Location.getParameter("log") != null) {
-        mlog = new HTML();
-        RootPanel.get().add(mlog);
-        log(msg, e);
-      } else {
-        if (logger == null) {
-          logger = Logger.getLogger("Gwt client Uploader");
-        }
-        logger.info(msg);
-        GWT.log(msg, e);
-      }
-    } else {
-      String html = (msg + "\n" + (e != null ? e.getMessage() :"")).replaceAll("\n", "<br/>");
-      mlog.setHTML(mlog.getHTML() + html);
-    }
+  public static void log(String msg, Throwable e)
+  {
   }
 
   /**
